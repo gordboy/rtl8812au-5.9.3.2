@@ -637,7 +637,7 @@ void phydm_rf_init(void		*dm_void)
 	struct dm_struct	*dm = (struct dm_struct *)dm_void;
 
 	odm_txpowertracking_init(dm);
-	
+
 	odm_clear_txpowertracking_state(dm);
 }
 

@@ -1583,7 +1583,7 @@ void phydm_fwoffload_ability_clear(struct dm_struct *dm,
 
 	case PHYDM_RF_DPK_OFFLOAD:
 		dm->fw_offload_ability &= (~PHYDM_RF_DPK_OFFLOAD);
-		break;	
+		break;
 
 	default:
 		PHYDM_DBG(dm, ODM_COMP_INIT, "fwofflad, wrong init type!!\n");

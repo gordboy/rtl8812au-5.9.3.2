@@ -2579,7 +2579,7 @@ u32 rtw_calc_crc32(u8 *data, size_t len)
 
 
 /**
- * rtw_gcmp_encrypt - 
+ * rtw_gcmp_encrypt -
  * @padapter:
  * @pxmitframe:
  *

@@ -60,7 +60,7 @@ struct dm_dack_info {
 
 struct _halrf_txgapk_info {
 	u32 txgapk_rf3f_bp[5][12][4]; /* band(2Gcck/2GOFDM/5GL/5GM/5GH)/idx/path */
-	boolean txgapk_bp_done;	
+	boolean txgapk_bp_done;
 };
 
 struct dm_iqk_info {

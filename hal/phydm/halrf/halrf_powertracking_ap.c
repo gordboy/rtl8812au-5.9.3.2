@@ -1032,7 +1032,7 @@ odm_txpowertracking_thermal_meter_init(
 		void		*adapter = dm->adapter;
 		HAL_DATA_TYPE	*hal_data = GET_HAL_DATA(((PADAPTER)adapter));
 		struct dm_priv	*pdmpriv = &hal_data->dmpriv;
-		
+
 		pdmpriv->is_txpowertracking = true;
 		pdmpriv->tx_powercount = 0;
 		pdmpriv->is_txpowertracking_init = false;
@@ -1215,7 +1215,7 @@ odm_txpowertracking_check_ap(
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x00);
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
-			
+
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x00);
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);

@@ -4321,7 +4321,7 @@ phy_ConfigMACWithParaFile(
 
 	if ((pHalData->mac_reg_len == 0) && (pHalData->mac_reg == NULL)) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -4401,7 +4401,7 @@ phy_ConfigBBWithParaFile(
 
 	if ((pBufLen != NULL) && (*pBufLen == 0) && (pBuf == NULL)) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -4708,7 +4708,7 @@ phy_ConfigBBWithPgParaFile(
 
 	if (pHalData->bb_phy_reg_pg == NULL) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -4758,7 +4758,7 @@ phy_ConfigBBWithMpParaFile(
 
 	if ((pHalData->bb_phy_reg_mp_len == 0) && (pHalData->bb_phy_reg_mp == NULL)) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -4863,7 +4863,7 @@ PHY_ConfigRFWithParaFile(
 
 	if ((pBufLen != NULL) && (*pBufLen == 0) && (pBuf == NULL)) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -5061,7 +5061,7 @@ PHY_ConfigRFWithTxPwrTrackParaFile(
 
 	if ((pHalData->rf_tx_pwr_track_len == 0) && (pHalData->rf_tx_pwr_track == NULL)) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -5561,7 +5561,7 @@ PHY_ConfigRFWithPowerLimitTableParaFile(
 
 	if (pHalData->rf_tx_pwr_lmt == NULL) {
 		rtw_get_phy_file_path(Adapter, pFileName);
-		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path, 
+		if (rtw_readable_file_sz_chk(rtw_phy_para_file_path,
 			MAX_PARA_FILE_BUF_LEN) == _TRUE) {
 			rlen = rtw_retrieve_from_file(rtw_phy_para_file_path, pHalData->para_file_buf, MAX_PARA_FILE_BUF_LEN);
 			if (rlen > 0) {
@@ -5859,7 +5859,7 @@ u8 hal_com_get_txpwr_idx(_adapter *adapter, enum rf_path rfpath
 #ifdef CONFIG_TXPWR_PG_WITH_PWR_IDX
 	case TXPWR_PG_WITH_PWR_IDX: {
 		/*
-		* power index = 
+		* power index =
 		* 1. pg base (per rate section) +
 		* 2. target diff (per rate) to target of its rate section +
 		* 3. amends diff (per rate)
@@ -5886,7 +5886,7 @@ u8 hal_com_get_txpwr_idx(_adapter *adapter, enum rf_path rfpath
 #ifdef CONFIG_TXPWR_PG_WITH_TSSI_OFFSET
 	case TXPWR_PG_WITH_TSSI_OFFSET: {
 		/*
-		* power index = 
+		* power index =
 		* 1. base (fixed) +
 		* 2. target (per rate) +
 		* 3. amends diff (per rate)
@@ -5971,13 +5971,13 @@ static s16 _phy_get_txpwr_max_mbm(_adapter *adapter, s8 rfpath
 		tx_num = rate_section_to_tx_num(rs);
 		if (tx_num + 1 > hal_data->tx_nss)
 			continue;
-		
+
 		if (band == BAND_ON_5G && IS_CCK_RATE_SECTION(rs))
 			continue;
-		
+
 		if (IS_VHT_RATE_SECTION(rs) && !IS_HARDWARE_TYPE_JAGUAR_ALL(adapter))
 			continue;
-		
+
 		for (i = 0; i < rates_by_sections[rs].rate_num; i++) {
 			hw_rate = MRateToHwRate(rates_by_sections[rs].rates[i]);
 			if (IS_LEGACY_HRATE(hw_rate)) {

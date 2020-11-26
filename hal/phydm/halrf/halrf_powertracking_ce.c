@@ -703,7 +703,7 @@ void odm_txpowertracking_thermal_meter_init(void *dm_void)
 		cali_info->thermal_value_iqk = tssi->thermal[RF_PATH_A];
 		cali_info->thermal_value_lck = tssi->thermal[RF_PATH_A];
 	}
-	
+
 	if (dm->support_ic_type == ODM_RTL8814B) {
 		cali_info->thermal_value_path[RF_PATH_A] = tssi->thermal[RF_PATH_A];
 		cali_info->thermal_value_path[RF_PATH_B] = tssi->thermal[RF_PATH_B];
@@ -827,7 +827,7 @@ void odm_txpowertracking_check_ce(void *dm_void)
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x00);
 			odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
-			
+
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x00);
 			odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);
@@ -850,7 +850,7 @@ void odm_txpowertracking_check_ce(void *dm_void)
 		dm->rf_calibrate_info.tm_trigger = 1;
 		return;
 	}
-	
+
 	if (dm->support_ic_type & (ODM_RTL8822C | ODM_RTL8814B)) {
 #if (RTL8822C_SUPPORT == 1 || RTL8814B_SUPPORT == 1)
 		odm_txpowertracking_new_callback_thermal_meter(dm);
@@ -890,7 +890,7 @@ odm_txpowertracking_direct_ce(void *dm_void)
 		odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
 		odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x00);
 		odm_set_rf_reg(dm, RF_PATH_A, R_0x42, BIT(19), 0x01);
-			
+
 		odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);
 		odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x00);
 		odm_set_rf_reg(dm, RF_PATH_B, R_0x42, BIT(19), 0x01);

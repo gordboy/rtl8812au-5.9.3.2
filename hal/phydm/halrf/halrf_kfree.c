@@ -945,7 +945,7 @@ void phydm_get_set_lna_offset_8198f(void *dm_void)
 				odm_set_rf_reg(dm, i, 0x86, (BIT(17) | BIT(16)), rf_reg);
 				RF_DBG(dm, DBG_RF_MP,
 					"[kfree] 8198f lna CS set rf 0x86 [17:16]=0x%x path=%d\n", rf_reg, i);
-			}	
+			}
 		}
 
 		power_trim_info->lna_flag |= LNA_FLAG_ON;
@@ -1078,7 +1078,7 @@ void phydm_get_set_thermal_trim_offset_8822c(void *dm_void)
 	if (power_trim_info->flag & KFREE_FLAG_THERMAL_K_ON)
 		RF_DBG(dm, DBG_RF_MP, "[kfree] 8822c thermalA:%d thermalB:%d\n",
 			thermal[RF_PATH_A],
-			thermal[RF_PATH_B]);	
+			thermal[RF_PATH_B]);
 }
 
 void phydm_set_power_trim_offset_8822c(void *dm_void)
@@ -1438,7 +1438,7 @@ void phydm_get_set_thermal_trim_offset_8812f(void *dm_void)
 	if (power_trim_info->flag & KFREE_FLAG_THERMAL_K_ON)
 		RF_DBG(dm, DBG_RF_MP, "[kfree] 8812f thermalA:%d thermalB:%d\n",
 			thermal[RF_PATH_A],
-			thermal[RF_PATH_B]);	
+			thermal[RF_PATH_B]);
 }
 
 void phydm_set_power_trim_offset_8812f(void *dm_void)
@@ -2170,16 +2170,16 @@ void phydm_set_power_trim_offset_8197g(void *dm_void)
 		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F,
 			power_trim_info->bb_gain[0][e_rf_path]);
 		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x1c000, 2);
-		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F, 
+		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F,
 			power_trim_info->bb_gain[1][e_rf_path]);
 		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x1c000, 3);
-		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F, 
+		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F,
 			power_trim_info->bb_gain[1][e_rf_path]);
 		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x1c000, 4);
-		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F, 
+		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F,
 			power_trim_info->bb_gain[2][e_rf_path]);
 		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x1c000, 5);
-		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F, 
+		odm_set_rf_reg(dm, e_rf_path, RF_0x33, 0x3F,
 			power_trim_info->bb_gain[2][e_rf_path]);
 
 		odm_set_rf_reg(dm, e_rf_path, RF_0xef, BIT(7), 0);
@@ -2364,7 +2364,7 @@ void phydm_set_power_trim_offset_8710c(void *dm_void)
 	odm_set_rf_reg(dm, RF_PATH_A, RF_0x3f, 0x3f,
 		power_trim_info->bb_gain[1][RF_PATH_A]);
 	odm_set_rf_reg(dm, RF_PATH_A, RF_0x33, RFREGOFFSETMASK, 2);
-	odm_set_rf_reg(dm, RF_PATH_A, RF_0x3f, 0x3f, 
+	odm_set_rf_reg(dm, RF_PATH_A, RF_0x3f, 0x3f,
 		power_trim_info->bb_gain[2][RF_PATH_A]);
 
 	odm_set_rf_reg(dm, RF_PATH_A, RF_0xef, BIT(18), 0);
@@ -2482,7 +2482,7 @@ s8 phydm_get_tssi_trim_de(void *dm_void, u8 path)
 	else if (dm->support_ic_type & ODM_RTL8812F)
 		return phydm_get_tssi_trim_de_8812f(dm, path);
 	else
-		return 0;	
+		return 0;
 }
 
 void phydm_do_new_kfree(void *dm_void)
@@ -2795,7 +2795,7 @@ void phydm_config_new_kfree(void *dm_void)
 			cali_info->reg_rf_kfree_enable == 0) {
 		RF_DBG(dm, DBG_RF_MP,
 		       "[kfree] %s: reg_rf_kfree_enable == true\n", __func__);
-	
+
 		phydm_do_new_kfree(dm);
 	}
 }

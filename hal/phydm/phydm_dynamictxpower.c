@@ -354,7 +354,7 @@ u8 phydm_search_min_power_index(void *dm_void)
 #endif
 				if (gain_index == 0xff) {
 					min_gain_index = 0x20;
-					PHYDM_DBG(dm, DBG_DYN_TXPWR, 
+					PHYDM_DBG(dm, DBG_DYN_TXPWR,
 						  "Error Gain idx!! Rewite to: ((%d))\n",
 						  min_gain_index);
 					break;

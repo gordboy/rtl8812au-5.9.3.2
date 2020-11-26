@@ -1442,7 +1442,7 @@ u8 phydm_get_tx_power_dbm(struct dm_struct *dm, u8 rf_path,
 u64 phydm_division64(u64 x, u64 y)
 {
 #if (DM_ODM_SUPPORT_TYPE & (ODM_AP))
-	do_div(x, y); 
+	do_div(x, y);
 	return x;
 #elif (DM_ODM_SUPPORT_TYPE & ODM_WIN)
 	return x / y;

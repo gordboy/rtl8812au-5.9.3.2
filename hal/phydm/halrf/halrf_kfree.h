@@ -138,7 +138,7 @@
 #define TSSI_5GH1_TXB_22C 0x1b3
 #define TSSI_5GH2_TXA_22C 0x1b2
 #define TSSI_5GH2_TXB_22C 0x1b1
- 
+
 /*8195B*/
 #define PPG_THERMAL_OFFSET_95B 0x1ef
 #define PPG_2GL_TXA_95B 0x1d4

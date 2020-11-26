@@ -903,14 +903,14 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 
 		cali_info->delta_power_index_last[i] = cali_info->delta_power_index[i];	/*recording poer index offset*/
 		delta[i] = thermal_value[i] > tssi->thermal[i] ? (thermal_value[i] - tssi->thermal[i]) : (tssi->thermal[i] - thermal_value[i]);
-				
+
 		if (delta[i] >= TXPWR_TRACK_TABLE_SIZE)
 			delta[i] = TXPWR_TRACK_TABLE_SIZE - 1;
 
 		if (thermal_value[i] > tssi->thermal[i]) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
 				"delta_swing_table_idx_tup[%d]=%d Path=%d\n", delta[i], delta_swing_table_idx_tup[delta[i]], i);
-				
+
 			cali_info->delta_power_index[i] = delta_swing_table_idx_tup[delta[i]];
 			cali_info->absolute_ofdm_swing_idx[i] =  delta_swing_table_idx_tup[delta[i]];	    /*Record delta swing for mix mode power tracking*/
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
@@ -925,7 +925,7 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 		}
 	}
 
-	for (p = RF_PATH_A; p < c.rf_path_count; p++) {	
+	for (p = RF_PATH_A; p < c.rf_path_count; p++) {
 		if (cali_info->delta_power_index[p] == cali_info->delta_power_index_last[p])	     /*If Thermal value changes but lookup table value still the same*/
 			cali_info->power_index_offset[p] = 0;
 		else
@@ -950,7 +950,7 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 		} else if (cali_info->txpowertrack_control == 3) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK, "**********Enter POWER Tracking TSSI_MODE**********\n");
 			tracking_method = TSSI_MODE;
-		}	
+		}
 	} else {
 		if (rf->power_track_type >= 0 && rf->power_track_type <= 3) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK, "**********Enter POWER Tracking MIX_MODE**********\n");
@@ -958,7 +958,7 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 		} else if (rf->power_track_type >= 4 && rf->power_track_type <= 7) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK, "**********Enter POWER Tracking TSSI_MODE**********\n");
 			tracking_method = TSSI_MODE;
-		}	
+		}
 	}
 
 	if (dm->support_ic_type == ODM_RTL8822C || dm->support_ic_type == ODM_RTL8814B)
@@ -1025,7 +1025,7 @@ odm_iq_calibrate(
 {
 	void	*adapter = dm->adapter;
 	struct dm_iqk_info	*iqk_info = &dm->IQK_info;
-	
+
 	RF_DBG(dm, DBG_RF_IQK, "=>%s\n",__FUNCTION__);
 
 #if (DM_ODM_SUPPORT_TYPE == ODM_WIN)

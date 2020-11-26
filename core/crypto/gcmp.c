@@ -121,18 +121,18 @@ u8 * gcmp_decrypt(const u8 *tk, size_t tk_len, const struct ieee80211_hdr *hdr,
 }
 
 /**
- * gcmp_encrypt - 
+ * gcmp_encrypt -
  * @tk: the temporal key
  * @tk_len: length of @tk
- * @frame: the point to mac header, the frame including mac header and payload, 
+ * @frame: the point to mac header, the frame including mac header and payload,
  *         if @pn is NULL, then the frame including pn
- * @len: length of @frame 
+ * @len: length of @frame
  *         length = mac header + payload
  * @hdrlen: length of the mac header
  * @qos: pointer to the QOS field of the frame
  * @pn: packet number
  * @keyid: key id
- * @encrypted_len: length of the encrypted frame 
+ * @encrypted_len: length of the encrypted frame
  *                 including mac header, pn, payload and MIC
  */
 u8 * gcmp_encrypt(const u8 *tk, size_t tk_len, const u8 *frame, size_t len,

@@ -999,14 +999,14 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 
 		cali_info->delta_power_index_last[i] = cali_info->delta_power_index[i];	/*recording poer index offset*/
 		delta[i] = thermal_value[i] > tssi->thermal[i] ? (thermal_value[i] - tssi->thermal[i]) : (tssi->thermal[i] - thermal_value[i]);
-				
+
 		if (delta[i] >= TXPWR_TRACK_TABLE_SIZE)
 			delta[i] = TXPWR_TRACK_TABLE_SIZE - 1;
 
 		if (thermal_value[i] > tssi->thermal[i]) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
 				"delta_swing_table_idx_tup[%d]=%d Path=%d\n", delta[i], delta_swing_table_idx_tup[delta[i]], i);
-				
+
 			cali_info->delta_power_index[i] = delta_swing_table_idx_tup[delta[i]];
 			cali_info->absolute_ofdm_swing_idx[i] =  delta_swing_table_idx_tup[delta[i]];	    /*Record delta swing for mix mode power tracking*/
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
@@ -1021,7 +1021,7 @@ odm_txpowertracking_new_callback_thermal_meter(void *dm_void)
 		}
 	}
 
-	for (p = RF_PATH_A; p < c.rf_path_count; p++) {	
+	for (p = RF_PATH_A; p < c.rf_path_count; p++) {
 		if (cali_info->delta_power_index[p] == cali_info->delta_power_index_last[p])	     /*If Thermal value changes but lookup table value still the same*/
 			cali_info->power_index_offset[p] = 0;
 		else

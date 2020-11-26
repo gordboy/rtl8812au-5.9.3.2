@@ -139,7 +139,7 @@ sint	_rtw_init_mlme_priv(_adapter *padapter)
 #if defined(CONFIG_RTW_WNM) || defined(CONFIG_RTW_80211K)
 	rtw_roam_nb_info_init(padapter);
 	pmlmepriv->ch_cnt = 0;
-#endif	
+#endif
 #endif
 
 	pmlmepriv->defs_lmt_sta = 2;
@@ -703,8 +703,8 @@ int is_same_network(WLAN_BSSID_EX *src, WLAN_BSSID_EX *dst, u8 feature)
 		return _TRUE;
 #endif
 
-	/* Wi-Fi driver doesn't consider the situation of BCN and ProbRsp sent from the same hidden AP, 
-	  * it considers these two packets are sent from different AP. 
+	/* Wi-Fi driver doesn't consider the situation of BCN and ProbRsp sent from the same hidden AP,
+	  * it considers these two packets are sent from different AP.
 	  * Therefore, the scan queue may store two scan results of the same hidden AP, likes below.
 	  *
 	  *  index            bssid              ch    RSSI   SdBm  Noise   age          flag             ssid
@@ -717,11 +717,11 @@ int is_same_network(WLAN_BSSID_EX *src, WLAN_BSSID_EX *dst, u8 feature)
 	  * It means the scan queue will not store two scan results of the same hidden AP, it only store ProbRsp.
 	  * For customer request.
 	  */
-	  
+
 	if (((_rtw_memcmp(src->MacAddress, dst->MacAddress, ETH_ALEN)) == _TRUE) &&
 		((s_cap & WLAN_CAPABILITY_IBSS) == (d_cap & WLAN_CAPABILITY_IBSS)) &&
 		((s_cap & WLAN_CAPABILITY_BSS) == (d_cap & WLAN_CAPABILITY_BSS))) {
-		if ((src->Ssid.SsidLength == dst->Ssid.SsidLength) && 
+		if ((src->Ssid.SsidLength == dst->Ssid.SsidLength) &&
 			(((_rtw_memcmp(src->Ssid.Ssid, dst->Ssid.Ssid, src->Ssid.SsidLength)) == _TRUE) || //Case of normal AP
 			(is_all_null(src->Ssid.Ssid, src->Ssid.SsidLength) == _TRUE || is_all_null(dst->Ssid.Ssid, dst->Ssid.SsidLength) == _TRUE))) //Case of hidden AP
 			return _TRUE;
@@ -998,7 +998,7 @@ bool rtw_update_scanned_network(_adapter *adapter, WLAN_BSSID_EX *target)
 			plist = get_next(plist);
 			continue;
 		}
-			
+
 #ifdef CONFIG_RSSI_PRIORITY
 		if ((choice == NULL) || (pnetwork->network.PhyInfo.SignalStrength < choice->network.PhyInfo.SignalStrength))
 			#ifdef CONFIG_RTW_MESH
@@ -2651,10 +2651,10 @@ u8 rtw_ft_chk_roaming_candidate(
 	/*The candidate don't support over-the-DS*/
 	if (rtw_ft_valid_otd_candidate(padapter, pmdie)) {
 		RTW_INFO("FT: ignore the candidate("
-			MAC_FMT ") for over-the-DS\n", 
+			MAC_FMT ") for over-the-DS\n",
 			MAC_ARG(competitor->network.MacAddress));
 			rtw_ft_clr_flags(padapter, RTW_FT_PEER_OTD_EN);
-		return _FALSE;	
+		return _FALSE;
 	}
 
 	return _TRUE;
@@ -2730,7 +2730,7 @@ err_2:
 void rtw_roam_nb_info_init(_adapter *padapter)
 {
 	struct roam_nb_info *pnb = &(padapter->mlmepriv.nb_info);
-	
+
 	_rtw_memset(&pnb->nb_rpt, 0, sizeof(pnb->nb_rpt));
 	_rtw_memset(&pnb->nb_rpt_ch_list, 0, sizeof(pnb->nb_rpt_ch_list));
 	_rtw_memset(&pnb->roam_target_addr, 0, ETH_ALEN);
@@ -2740,8 +2740,8 @@ void rtw_roam_nb_info_init(_adapter *padapter)
 	pnb->nb_rpt_is_same = _TRUE;
 	pnb->last_nb_rpt_entries = 0;
 #ifdef CONFIG_RTW_WNM
-	rtw_init_timer(&pnb->roam_scan_timer, 
-		padapter, rtw_wnm_roam_scan_hdl, 
+	rtw_init_timer(&pnb->roam_scan_timer,
+		padapter, rtw_wnm_roam_scan_hdl,
 		padapter);
 #endif
 }
@@ -2769,7 +2769,7 @@ u8 rtw_roam_nb_scan_list_set(
 	rtw_init_sitesurvey_parm(padapter, pparm);
 	if (rtw_roam_busy_scan(padapter, pnb)) {
 		pparm->ch_num = 1;
-		pparm->ch[pmlmepriv->ch_cnt].hw_value = 
+		pparm->ch[pmlmepriv->ch_cnt].hw_value =
 			pnb->nb_rpt_ch_list[pmlmepriv->ch_cnt].hw_value;
 		pmlmepriv->ch_cnt++;
 		ret = _TRUE;
@@ -2788,7 +2788,7 @@ u8 rtw_roam_nb_scan_list_set(
 	}
 
 	pmlmepriv->nb_info.nb_rpt_valid = _FALSE;
-	pmlmepriv->ch_cnt = 0;		
+	pmlmepriv->ch_cnt = 0;
 	ret = _TRUE;
 
 set_bssid_list:
@@ -3100,7 +3100,7 @@ void rtw_scan_timeout_handler(void *ctx)
 void rtw_mlme_reset_auto_scan_int(_adapter *adapter, u8 *reason)
 {
 #if defined(CONFIG_RTW_MESH) && defined(CONFIG_DFS_MASTER)
-#if CONFIG_RTW_MESH_OFFCH_CAND 
+#if CONFIG_RTW_MESH_OFFCH_CAND
 	struct rf_ctl_t *rfctl = adapter_to_rfctl(adapter);
 #endif
 #endif
@@ -3214,7 +3214,7 @@ void rtw_drv_scan_by_self(_adapter *padapter, u8 reason)
 	}
 
 #if defined(CONFIG_RTW_WNM) || defined(CONFIG_RTW_80211K)
-	if ((reason == RTW_AUTO_SCAN_REASON_ROAM) 
+	if ((reason == RTW_AUTO_SCAN_REASON_ROAM)
 		&& (rtw_roam_nb_scan_list_set(padapter, &parm)))
 		goto exit;
 #endif
@@ -3444,7 +3444,7 @@ static void collect_traffic_statistics(_adapter *padapter)
 	dynamic_napi_th_chk (padapter);
 #endif /* CONFIG_RTW_NAPI_DYNAMIC */
 #endif
-	
+
 }
 
 void rtw_dynamic_check_timer_handlder(void *ctx)
@@ -3578,10 +3578,10 @@ static int rtw_check_roaming_candidate(struct mlme_priv *mlme
 		goto exit;
 
 #if defined(CONFIG_RTW_80211R) && defined(CONFIG_RTW_WNM)
-	if (rtw_wnm_btm_diff_bss(adapter) && 
+	if (rtw_wnm_btm_diff_bss(adapter) &&
 		rtw_wnm_btm_roam_candidate(adapter, competitor)) {
 		goto update;
-	}	
+	}
 #endif
 
 	if (competitor->network.Rssi - mlme->cur_network_scanned->network.Rssi < mlme->roam_rssi_diff_th)
@@ -4031,9 +4031,9 @@ exit:
 /*
  * rtw_uapsd_use_default_setting
  * This function is used for setting default uapsd max sp length to uapsd_max_sp_len
- * in qos_priv data structure from registry. In additional, it will also map default uapsd 
- * ac to each uapsd TID, delivery-enabled and trigger-enabled of corresponding TID. 
- * 
+ * in qos_priv data structure from registry. In additional, it will also map default uapsd
+ * ac to each uapsd TID, delivery-enabled and trigger-enabled of corresponding TID.
+ *
  * Arguments:
  * @padapter: _adapter pointer.
  *
@@ -4048,7 +4048,7 @@ void	rtw_uapsd_use_default_setting(_adapter *padapter)
 
 	if (pregistrypriv->uapsd_ac_enable != 0) {
 		pqospriv->uapsd_max_sp_len = pregistrypriv->uapsd_max_sp_len;
-		
+
 		CLEAR_FLAGS(pqospriv->uapsd_tid);
 		CLEAR_FLAGS(pqospriv->uapsd_tid_delivery_enabled);
 		CLEAR_FLAGS(pqospriv->uapsd_tid_trigger_enabled);
@@ -4064,7 +4064,7 @@ void	rtw_uapsd_use_default_setting(_adapter *padapter)
 		}
 
 		/* check the uapsd setting of AC_VI from registry then map these setting to each TID if necessary  */
-		if(TEST_FLAG(pregistrypriv->uapsd_ac_enable, DRV_CFG_UAPSD_VI)) {	
+		if(TEST_FLAG(pregistrypriv->uapsd_ac_enable, DRV_CFG_UAPSD_VI)) {
 			SET_FLAG(pqospriv->uapsd_tid, WMM_TID5);
 			SET_FLAG(pqospriv->uapsd_tid_delivery_enabled, WMM_TID5);
 			SET_FLAG(pqospriv->uapsd_tid_trigger_enabled, WMM_TID5);
@@ -4093,7 +4093,7 @@ void	rtw_uapsd_use_default_setting(_adapter *padapter)
 			SET_FLAG(pqospriv->uapsd_tid_trigger_enabled, WMM_TID0);
 		}
 
-		RTW_INFO("[WMMPS] UAPSD MAX SP Len = 0x%02x, UAPSD TID enabled = 0x%02x\n", 
+		RTW_INFO("[WMMPS] UAPSD MAX SP Len = 0x%02x, UAPSD TID enabled = 0x%02x\n",
 			pqospriv->uapsd_max_sp_len, (u8)pqospriv->uapsd_tid);
 	}
 
@@ -4103,18 +4103,18 @@ void	rtw_uapsd_use_default_setting(_adapter *padapter)
  * rtw_is_wmmps_mode
  * This function is used for checking whether Driver and an AP support uapsd function or not.
  * If both of them support uapsd function, it will return true. Otherwise returns false.
- * 
+ *
  * Arguments:
  * @padapter: _adapter pointer.
  *
  * Auther: Arvin Liu
  * Date: 2017/06/12
  */
-bool rtw_is_wmmps_mode(_adapter *padapter) 
+bool rtw_is_wmmps_mode(_adapter *padapter)
 {
 	struct mlme_priv	*pmlmepriv = &(padapter->mlmepriv);
 	struct qos_priv	*pqospriv = &pmlmepriv->qospriv;
-		
+
 	if ((pqospriv->uapsd_ap_supported) && ((pqospriv->uapsd_tid & BIT_MASK_TID_TC)  != 0))
 		return _TRUE;
 
@@ -4157,16 +4157,16 @@ int rtw_restruct_wmm_ie(_adapter *adapter, u8 *in_ie, u8 *out_ie, uint in_len, u
 
 #ifdef CONFIG_WMMPS_STA
 			switch(pqospriv->uapsd_max_sp_len) {
-				case NO_LIMIT: 
+				case NO_LIMIT:
 					/* do nothing */
 					break;
-				case TWO_MSDU: 
+				case TWO_MSDU:
 					SET_FLAG(qos_info, BIT5);
 					break;
-				case FOUR_MSDU: 
+				case FOUR_MSDU:
 					SET_FLAG(qos_info, BIT6);
-					break;	
-				case SIX_MSDU: 
+					break;
+				case SIX_MSDU:
 					SET_FLAG(qos_info, BIT5);
 					SET_FLAG(qos_info, BIT6);
 					break;
@@ -4188,7 +4188,7 @@ int rtw_restruct_wmm_ie(_adapter *adapter, u8 *in_ie, u8 *out_ie, uint in_len, u
 			if((TEST_FLAG(pqospriv->uapsd_tid, WMM_TID3)) && (TEST_FLAG(pqospriv->uapsd_tid, WMM_TID0)))
 				SET_FLAG(qos_info, WMM_IE_UAPSD_BE);
 #endif /* CONFIG_WMMPS_STA */
-			
+
 			out_ie[initial_out_len + 8] = qos_info;
 
 			break;
@@ -4299,7 +4299,7 @@ int rtw_rsn_sync_pmkid(_adapter *adapter, u8 *ie, uint ie_len, int i_ent)
 		+ 2 + 16 * info.pmkid_cnt
 		+ (info.gmcs ? 4 : 0)
 		;
-	
+
 	ie[1] = (u8)(ie_len - 2);
 
 exit:
@@ -4619,7 +4619,7 @@ unsigned int rtw_restructure_ht_ie(_adapter *padapter, u8 *in_ie, u8 *out_ie, ui
 				}
 			}
 			// IOT issue : AP TP-Link WDR6500
-			if(oper_bw == CHANNEL_WIDTH_40){ 
+			if(oper_bw == CHANNEL_WIDTH_40){
 				p = rtw_get_ie(in_ie, WLAN_EID_HT_CAP, &ielen, in_len);
 				if (p && ielen == HT_CAP_IE_LEN) {
 					oper_bw = GET_HT_CAP_ELE_CHL_WIDTH(p + 2)  ? CHANNEL_WIDTH_40 : CHANNEL_WIDTH_20;
@@ -4840,7 +4840,7 @@ void rtw_update_ht_cap(_adapter *padapter, u8 *pie, uint ie_len, u8 channel)
 			phtpriv->ampdu_enable = _TRUE;
 		} else
 			phtpriv->ampdu_enable = _TRUE;
-	} 
+	}
 
 
 	/* check Max Rx A-MPDU Size */
@@ -4924,7 +4924,7 @@ void rtw_update_ht_cap(_adapter *padapter, u8 *pie, uint ie_len, u8 channel)
 		default:
 			pmlmeext->cur_bwmode = CHANNEL_WIDTH_20;
 			pmlmeext->cur_ch_offset = HAL_PRIME_CHNL_OFFSET_DONT_CARE;
-			RTW_INFO("%s : ch offset is not assigned for HT40 mod , update cur_bwmode=%u, cur_ch_offset=%u\n", 
+			RTW_INFO("%s : ch offset is not assigned for HT40 mod , update cur_bwmode=%u, cur_ch_offset=%u\n",
 					__func__, pmlmeext->cur_bwmode, pmlmeext->cur_ch_offset);
 			break;
 		}

@@ -499,7 +499,7 @@ void rtw_filter_suppport_rateie(WLAN_BSSID_EX *pbss_network, u8 keep)
 	_rtw_memmove(p+2+idx, remain_ies, remain_len);
 	pbss_network->IELength -= (ie_orilen - idx);
 }
- 
+
 
 /*
 	Adjust those items by given wireless_mode

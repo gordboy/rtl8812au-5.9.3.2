@@ -1184,7 +1184,7 @@ struct dvobj_priv {
 
 	struct cam_ctl_t cam_ctl;
 	struct sec_cam_ent cam_cache[SEC_CAM_ENT_NUM_SW_LIMIT];
-	
+
 	struct wow_ctl_t wow_ctl;
 
 #ifdef CONFIG_MBSSID_CAM
@@ -1229,7 +1229,7 @@ struct dvobj_priv {
 	_timer txbcn_timer;
 #endif
 	_timer dynamic_chk_timer; /* dynamic/periodic check timer */
-	
+
 #ifdef CONFIG_RTW_NAPI_DYNAMIC
 	u8 en_napi_dynamic;
 #endif /* CONFIG_RTW_NAPI_DYNAMIC */
@@ -1339,8 +1339,8 @@ struct dvobj_priv {
 	u8 tpt_mode; /* RTK T/P Testing Mode, 0:default mode */
 	u32 edca_be_ul;
 	u32 edca_be_dl;
-#endif 
-	/* also for RTK T/P Testing Mode */ 
+#endif
+	/* also for RTK T/P Testing Mode */
 	u8 scan_deny;
 
 	/* protect sel to safely access */

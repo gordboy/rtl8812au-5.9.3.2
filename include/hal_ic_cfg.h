@@ -418,7 +418,7 @@
 		#define CONFIG_P2P_PS_NOA_USE_MACID_SLEEP
 	#endif
 	#define CONFIG_RTS_FULL_BW
-	
+
 	#ifdef CONFIG_LPS
 		#define CONFIG_LPS_ACK	/* Supported after FW v07 */
 		#define CONFIG_LPS_1T1R /* Supported after FW v07 */

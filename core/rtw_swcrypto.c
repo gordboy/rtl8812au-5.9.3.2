@@ -21,8 +21,8 @@
 #include <wlancrypto_wrap.h>
 
 /**
- * rtw_ccmp_encrypt - 
- * @key: the temporal key 
+ * rtw_ccmp_encrypt -
+ * @key: the temporal key
  * @hdrlen: mac header length
  * @frame: the frame including the mac header, pn and payload
  * @plen: payload length, i.e., length of the plain text, without PN and MIC
@@ -125,8 +125,8 @@ int _aes_siv_decrypt(const u8 *key, size_t key_len,
 
 
 /**
- * _rtw_gcmp_encrypt - 
- * @key: the temporal key 
+ * _rtw_gcmp_encrypt -
+ * @key: the temporal key
  * @hdrlen: mac header length
  * @frame: the frame including the mac header, pn and payload
  * @plen: payload length, i.e., length of the plain text, without PN and MIC

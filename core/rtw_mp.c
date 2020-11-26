@@ -3134,7 +3134,7 @@ u32 mpt_get_tx_power_finalabs_val(PADAPTER	padapter, u8 rf_path)
 	u32 powerdbm = 0;
 
 	powerdbm = phy_get_tx_power_final_absolute_value(padapter, rf_path, mgn_rate, pHalData->current_channel_bw, pHalData->current_channel);
-	
+
 	RTW_INFO("bw=%d, ch=%d, rateid=%d, TSSI Power(dBm):%d\n",
 		pHalData->current_channel_bw, pHalData->current_channel, mgn_rate ,powerdbm);
 

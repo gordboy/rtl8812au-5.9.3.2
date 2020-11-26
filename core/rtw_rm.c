@@ -1866,7 +1866,7 @@ int retrieve_radio_meas_result(struct rm_obj *prm)
 		/* IPI 0~10 */
 		for (i=0;i<11;i++)
 			prm->p.ipi[i] = hal_data->acs.nhm[ch][i];
-		
+
 #else
 		val8 = 0;
 		prm->p.anpi = val8;

@@ -37,7 +37,7 @@
 			_offset = _size-1;\
 	} while (0)
 
-void odm_clear_txpowertracking_state(	
+void odm_clear_txpowertracking_state(
 	void *dm_void
 )
 {
@@ -46,7 +46,7 @@ void odm_clear_txpowertracking_state(
 	struct rtl8192cd_priv *priv = dm->priv;
 
 	u8 i;
-	
+
 	RF_DBG(dm, DBG_RF_TX_PWR_TRACK, "===>%s\n", __func__);
 
 	for (i = 0; i < MAX_RF_PATH; i++) {
@@ -425,7 +425,7 @@ odm_txpowertracking_callback_thermal_meter_jaguar_series4(void *dm_void)
 
 	for (i = 0; i < c.rf_path_count; i++) {
 		RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
-			"PGthermal[%d]=0x%x(%d)\n", i, 
+			"PGthermal[%d]=0x%x(%d)\n", i,
 			priv->pmib->dot11RFEntry.thermal[i],
 			priv->pmib->dot11RFEntry.thermal[i]);
 
@@ -529,14 +529,14 @@ odm_txpowertracking_callback_thermal_meter_jaguar_series4(void *dm_void)
 
 		cali_info->delta_power_index_last_path[i] = cali_info->delta_power_index_path[i];	/*recording poer index offset*/
 		delta[i] = thermal_value[i] > priv->pmib->dot11RFEntry.thermal[i] ? (thermal_value[i] - priv->pmib->dot11RFEntry.thermal[i]) : (priv->pmib->dot11RFEntry.thermal[i] - thermal_value[i]);
-				
+
 		if (delta[i] >= TXPWR_TRACK_TABLE_SIZE)
 			delta[i] = TXPWR_TRACK_TABLE_SIZE - 1;
 
 		if (thermal_value[i] > priv->pmib->dot11RFEntry.thermal[i]) {
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
 				"delta_swing_table_idx_tup[%d]=%d Path=%d\n", delta[i], delta_swing_table_idx_tup[delta[i]], i);
-				
+
 			cali_info->delta_power_index_path[i] = delta_swing_table_idx_tup[delta[i]];
 			cali_info->absolute_ofdm_swing_idx[i] =  delta_swing_table_idx_tup[delta[i]];	    /*Record delta swing for mix mode power tracking*/
 			RF_DBG(dm, DBG_RF_TX_PWR_TRACK,
@@ -553,7 +553,7 @@ odm_txpowertracking_callback_thermal_meter_jaguar_series4(void *dm_void)
 
 #endif
 
-	for (p = RF_PATH_A; p < c.rf_path_count; p++) {	
+	for (p = RF_PATH_A; p < c.rf_path_count; p++) {
 		if (cali_info->delta_power_index_path[p] == cali_info->delta_power_index_last_path[p])	     /*If Thermal value changes but lookup table value still the same*/
 			cali_info->power_index_offset_path[p] = 0;
 		else
@@ -1338,7 +1338,7 @@ odm_txpowertracking_callback_thermal_meter(
 	struct dm_rf_calibration_struct	*cali_info = &(dm->rf_calibrate_info);
 	struct dm_iqk_info	*iqk_info = &dm->IQK_info;
 
-	
+
 #if (RTL8814B_SUPPORT == 1 || RTL8812F_SUPPORT == 1 || RTL8822C_SUPPORT == 1 || RTL8197G_SUPPORT == 1)
 	if (dm->support_ic_type & (ODM_RTL8814B | ODM_RTL8812F | ODM_RTL8822C | ODM_RTL8197G)) {
 		odm_txpowertracking_callback_thermal_meter_jaguar_series4(dm);

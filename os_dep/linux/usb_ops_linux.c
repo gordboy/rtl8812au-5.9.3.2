@@ -132,7 +132,7 @@ int usbctrl_vendorreq(struct intf_hdl *pintfhdl, u8 request, u16 value, u16 inde
 					RTW_INFO("reg 0x%x, usb %s %u fail, status:%d, vendorreq_times:%d\n"
 						, value, (requesttype == 0x01) ? "read" : "write" , len, status, vendorreq_times);
 				break;
-				
+
 			}
 
 			if (status < 0) {

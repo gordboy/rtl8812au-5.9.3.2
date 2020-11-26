@@ -842,7 +842,7 @@ void phydm_cck_pd_init_type4(void *dm_void)
 				pd_step = 3;
 		}
 		#endif
-		
+
 		val = (u8)(reg0 & 0x000000ff) + pd_step;
 		PHYDM_DBG(dm, DBG_CCKPD, "lvl %d val = %x\n\n", i, val);
 		cckpd_t->cckpd_jgr3[0][0][0][i] = val;

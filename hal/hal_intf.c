@@ -86,7 +86,7 @@ static void rtw_init_wireless_mode(_adapter *padapter)
 	struct hal_spec_t *hal_spec = GET_HAL_SPEC(padapter);
 	if(hal_spec->proto_cap & PROTO_CAP_11B)
 		proto_wireless_mode |= WIRELESS_11B;
-	
+
 	if(hal_spec->proto_cap & PROTO_CAP_11G)
 		proto_wireless_mode |= WIRELESS_11G;
 #ifdef CONFIG_80211AC_VHT
@@ -105,7 +105,7 @@ static void rtw_init_wireless_mode(_adapter *padapter)
 #endif
 
 #ifdef CONFIG_80211AC_VHT
-	if(hal_spec->proto_cap & PROTO_CAP_11AC) 
+	if(hal_spec->proto_cap & PROTO_CAP_11AC)
 		proto_wireless_mode |= WIRELESS_11AC;
 #endif
 	padapter->registrypriv.wireless_mode &= proto_wireless_mode;
@@ -121,7 +121,7 @@ void rtw_hal_def_value_init(_adapter *padapter)
 		padapter->hal_func.init_default_value(padapter);
 
 		rtw_init_hal_com_default_value(padapter);
-		
+
 		#ifdef CONFIG_FW_MULTI_PORT_SUPPORT
 		adapter_to_dvobj(padapter)->dft.port_id = 0xFF;
 		adapter_to_dvobj(padapter)->dft.mac_id = 0xFF;
@@ -314,7 +314,7 @@ if (IS_HARDWARE_TYPE_8814A(adapter)) {
 	int i;
 
 	trx_path_bmp = hal_spec->rf_reg_trx_path_bmp;
-	
+
 	if (regsty->trx_path_bmp != 0x00) {
 		/* restrict trx_path_bmp with regsty.trx_path_bmp */
 		trx_path_bmp &= regsty->trx_path_bmp;
@@ -1304,7 +1304,7 @@ s32 c2h_handler(_adapter *adapter, u8 id, u8 seq, u8 plen, u8 *payload)
 	case C2H_LPS_STATUS_RPT:
 		c2h_lps_status_rpt(adapter, payload, plen);
 		break;
-#endif	
+#endif
 #ifdef CONFIG_FW_OFFLOAD_SET_TXPWR_IDX
 	case C2H_SET_TXPWR_FINISH:
 		c2h_txpwr_idx_offload_done(adapter, payload, plen);
@@ -1680,7 +1680,7 @@ static s32 _rtw_hal_macid_drop(_adapter *adapter, u8 macid, u8 drop)
 			, ADPT_ARG(adapter), drop ? "drop" : "undrop" , macid);
 		goto exit;
 	}
-	
+
 	if(_rtw_macid_ctl_chk_cap(adapter, MACID_DROP)) {
 		if (macid < 32) {
 #ifndef CONFIG_PROTSEL_MACSLEEP
@@ -1760,13 +1760,13 @@ static s32 _rtw_hal_macid_drop(_adapter *adapter, u8 macid, u8 drop)
 			, ADPT_ARG(adapter), drop ? "drop" : "undrop"
 			, macid, reg_drop_info, val32);
 #endif /* CONFIG_PROTSEL_MACSLEEP */
-		
-		
+
+
 	} else if(_rtw_macid_ctl_chk_cap(adapter, MACID_DROP_INDIRECT)) {
 		u16 start_addr = macid_ctl->macid_txrpt/8;
 		u32 txrpt_h4b = 0;
 		u8 i;
-		
+
 		/* each address means 1 byte */
 		start_addr += macid*(macid_ctl->macid_txrpt_pgsz/8);
 		/* select tx report buffer */

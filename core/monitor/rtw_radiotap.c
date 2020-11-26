@@ -183,7 +183,7 @@ sint rtw_fill_radiotap_hdr(_adapter *padapter, struct rx_pkt_attrib *a, u8 *buf)
 	struct ieee80211_radiotap_header *rtap_hdr = NULL;
 	u8 *ptr = NULL;
 
-	/* 
+	/*
 	  radiotap length (include header 8)
 	  11G length: 36 (0x0040002f)
 	  11N length:

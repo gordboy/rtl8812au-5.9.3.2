@@ -1561,7 +1561,7 @@ u8 rtw_is_tbtx_capabilty(u8 *p, u8 len){
 	u8 tbtx_cap_ie[8] = {0x00, 0xe0, 0x4c, 0x01, 0x00, 0x00, 0x00, 0x00};
 
 	for (i = 0; i < len; i++) {
-		if (*(p + i) != tbtx_cap_ie[i]) 
+		if (*(p + i) != tbtx_cap_ie[i])
 			return _FALSE;
 		else
 			continue;
@@ -1584,7 +1584,7 @@ void WMMOnAssocRsp(_adapter *padapter)
 #ifdef CONFIG_WMMPS_STA
 	struct mlme_priv	*pmlmepriv = &(padapter->mlmepriv);
 	struct qos_priv	*pqospriv = &pmlmepriv->qospriv;
-#endif /* CONFIG_WMMPS_STA */	
+#endif /* CONFIG_WMMPS_STA */
 
 	acm_mask = 0;
 
@@ -1710,7 +1710,7 @@ void WMMOnAssocRsp(_adapter *padapter)
 			pxmitpriv->wmm_para_seq[i] = inx[i];
 			RTW_INFO("wmm_para_seq(%d): %d\n", i, pxmitpriv->wmm_para_seq[i]);
 		}
-		
+
 #ifdef CONFIG_WMMPS_STA
 		/* if AP supports UAPSD function, driver must set each uapsd TID to coresponding mac register 0x693 */
 		if (pmlmeinfo->WMM_param.QoS_info & AP_SUPPORTED_UAPSD) {
@@ -2357,11 +2357,11 @@ inline bool match_ranges(u16 EID, u32 value)
 /*
  * rtw_validate_value: validate the IE contain.
  *
- *	Input : 
+ *	Input :
  *		EID : Element ID
  *		p	: IE buffer (without EID & length)
  *		len	: IE length
- *	return: 
+ *	return:
  * 		_TRUE	: All Values are validated.
  *		_FALSE	: At least one value is NOT validated.
  */
@@ -2427,7 +2427,7 @@ void rtw_absorb_ssid_ifneed(_adapter *padapter, WLAN_BSSID_EX *bssid, u8 *pframe
 			ie_offset = _FIXED_IE_LENGTH_;
 		}
 	}
-	
+
 	_enter_critical_bh(&padapter->mlmepriv.scanned_queue.lock, &irqL);
 	scanned = _rtw_find_network(&padapter->mlmepriv.scanned_queue, mac);
 	if (!scanned) {
@@ -3254,7 +3254,7 @@ unsigned char check_assoc_AP(u8 *pframe, uint len)
 void get_assoc_AP_Vendor(char *vendor, u8 assoc_AP_vendor)
 {
 	switch (assoc_AP_vendor) {
-	
+
 	case HT_IOT_PEER_UNKNOWN:
 	sprintf(vendor, "%s", "unknown");
 	break;
@@ -3312,7 +3312,7 @@ void rtw_parse_sta_vendor_ie_8812(_adapter *adapter, struct sta_info *sta, u8 *t
 
 			if(*(p+6) != 2)
 				goto exit;
-			
+
 			if(*(p+8) == RT_HT_CAP_USE_JAGUAR_BCUT)
 				sta->vendor_8812 = TRUE;
 			else if (*(p+8) == RT_HT_CAP_USE_JAGUAR_CCUT)
@@ -3538,7 +3538,7 @@ int rtw_ies_get_supported_rate(u8 *ies, uint ies_len, u8 *rate_set, u8 *rate_num
 		{IEEE80211_OFDM_RATE_48MB,		_FALSE,		_FALSE},
 		{IEEE80211_OFDM_RATE_54MB,		_FALSE,		_FALSE},
 	};
-		
+
 	if (!rate_set || !rate_num)
 		return _FALSE;
 

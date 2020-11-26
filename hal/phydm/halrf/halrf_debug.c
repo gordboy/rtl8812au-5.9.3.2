@@ -213,8 +213,8 @@ void halrf_dack_debug_cmd(void *dm_void, char input[][16])
 
 	if (dm_value[0] == 1)
 		halrf_dack_trigger(dm, true);
-	else			
-		halrf_dack_trigger(dm, false);	
+	else
+		halrf_dack_trigger(dm, false);
 }
 
 struct halrf_command {

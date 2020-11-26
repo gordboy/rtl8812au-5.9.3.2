@@ -127,7 +127,7 @@ void phydm_rd_reg_pwr(void *dm_void, u32 *_used, char *output, u32 *_out_len);
 void phydm_wt_reg_pwr(void *dm_void, boolean is_ofst1, boolean pwr_ofst_en,
             		     s8 pwr_ofst);
 
-void phydm_wt_ram_pwr(void *dm_void, u8 macid, boolean is_ofst1, 
+void phydm_wt_ram_pwr(void *dm_void, u8 macid, boolean is_ofst1,
 		             boolean pwr_ofst_en, s8 pwr_ofst);
 
 

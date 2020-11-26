@@ -97,7 +97,7 @@ SwLedBlink(
 			_set_timer(&(pLed->BlinkTimer), LED_BLINK_SLOWLY_INTERVAL);
 			break;
 
-		case LED_BLINK_WPS: 
+		case LED_BLINK_WPS:
 			_set_timer(&(pLed->BlinkTimer), LED_BLINK_LONG_INTERVAL);
 		        break;
 
@@ -559,8 +559,8 @@ SwLedBlink4(
 				_set_timer(&(pLed->BlinkTimer), LED_BLINK_NO_LINK_INTERVAL_ALPHA);
 			}
 			pLed->bLedScanBlinkInProgress = _FALSE;
-		} else 
-#endif 
+		} else
+#endif
 		{
 			if (adapter_to_pwrctl(padapter)->rf_pwrstate != rf_on && adapter_to_pwrctl(padapter)->rfoff_reason > RF_CHANGE_BY_PS)
 				SwLedOff(padapter, pLed);

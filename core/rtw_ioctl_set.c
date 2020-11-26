@@ -677,7 +677,7 @@ u8 rtw_set_acs_sitesurvey(_adapter *adapter)
 			#endif
 		}
 
-		ch_num = center_chs_num(CHANNEL_WIDTH_20);	
+		ch_num = center_chs_num(CHANNEL_WIDTH_20);
 		for (i = 0; i < ch_num && parm.ch_num < RTW_CHANNEL_SCAN_AMOUNT; i++) {
 			parm.ch[parm.ch_num].hw_value = center_chs(CHANNEL_WIDTH_20, i);
 			parm.ch[parm.ch_num].flags = RTW_IEEE80211_CHAN_PASSIVE_SCAN;
@@ -821,7 +821,7 @@ u16 rtw_get_cur_max_rate(_adapter *adapter)
 	else
 #endif /* CONFIG_80211N_HT */
 	{
-		/*station mode show :station && ap support rate; softap :show ap support rate*/	
+		/*station mode show :station && ap support rate; softap :show ap support rate*/
 		if (check_fwstate(pmlmepriv, WIFI_STATION_STATE) == _TRUE)
 			get_rate_set(adapter, sta_bssrate, &sta_bssrate_len);/*get sta rate and length*/
 
@@ -843,7 +843,7 @@ u16 rtw_get_cur_max_rate(_adapter *adapter)
 					}
 				}
 			} else {
-			
+
 				if (rate > max_rate)
 					max_rate = rate;
 
