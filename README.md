@@ -6,6 +6,10 @@ Only supports 8812AU chipset.
 
 Initial upload.
 
+Builds clean with no errors on kernels 5.4, 5.8, 5.9.
+Fully tested on kernel 5.4 with no dmesg badness, wavemon working fine, good speeds etc.
+Partially tested on kernels 5.8, 5.9 with no dmesg badness, and wavemon working fine.
+
 ### Building
 
 To build and install module manually:
