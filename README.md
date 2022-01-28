@@ -1,6 +1,10 @@
 # rtl8812au-5.9.3.2
 
-## Realtek 8812AU driver version 5.9.3.2
+## Realtek 8812AU driver version 5.9.3.2 ** NOW OBSOLETE **
+
+******************************************************************
+No longer supported, please try https://github.com/morrownr/8812au
+******************************************************************
 
 Only supports 8812AU chipset.
 
